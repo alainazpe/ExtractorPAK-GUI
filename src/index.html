@@ -1,0 +1,369 @@
+<!-- 
+
+          THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+          IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+          FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+          AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+          LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+          OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+          THE SOFTWARE.
+
+ - Esta aplicación debe de abrirse con NW.JS, no funcionará en navegadores convencionales.
+ - Esta aplicación utiliza:
+     
+     jQuery v3.4.1 | (c) JS Foundation and other contributors | jquery.org/license
+
+     Twemoji (https://twemoji.twitter.com/):
+
+          Copyright 2019 Twitter, Inc and other contributors
+          Code licensed under the MIT License: http://opensource.org/licenses/MIT
+          Graphics licensed under CC-BY 4.0: https://creativecommons.org/licenses/by/4.0/
+
+          Permission is hereby granted, free of charge, to any person obtaining a copy
+          of this software and associated documentation files (the "Software"), to deal
+          in the Software without restriction, including without limitation the rights
+          to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+          copies of the Software, and to permit persons to whom the Software is
+          furnished to do so, subject to the following conditions:
+
+          The above copyright notice and this permission notice shall be included in
+          all copies or substantial portions of the Software.
+
+          THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+          IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+          FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+          AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+          LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+          OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+          THE SOFTWARE.
+
+     Offzip: Luigi Auriemma (me@aluigi.org):
+
+	/*
+  	  Copyright 2004-2015 Luigi Auriemma
+  	  This program is free software; you can redistribute it and/or modify
+  	  it under the terms of the GNU General Public License as published by
+ 	  the Free Software Foundation; either version 2 of the License, or
+ 	  (at your option) any later version.
+	  This program is distributed in the hope that it will be useful,
+  	  but WITHOUT ANY WARRANTY; without even the implied warranty of
+   	  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   	  GNU General Public License for more details.
+  	  You should have received a copy of the GNU General Public License
+  	  along with this program; if not, write to the Free Software
+  	  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
+   	  http://www.gnu.org/licenses/gpl-2.0.txt
+
+     Node.js:
+
+  	  Node.js is licensed for use as follows:
+
+  	  """
+  	  Copyright Node.js contributors. All rights reserved.
+
+  	  Permission is hereby granted, free of charge, to any person obtaining a copy
+  	  of this software and associated documentation files (the "Software"), to
+  	  deal in the Software without restriction, including without limitation the
+  	  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  	  sell copies of the Software, and to permit persons to whom the Software is
+  	  furnished to do so, subject to the following conditions:
+
+  	  The above copyright notice and this permission notice shall be included in
+  	  all copies or substantial portions of the Software.
+
+  	  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  	  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  	  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  	  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  	  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  	  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  	  IN THE SOFTWARE.
+  	  """
+
+     thiscouldbebetter/HexEditor (https://github.com/thiscouldbebetter/HexEditor):
+
+  	  MIT License
+
+  	  Copyright (c) 2017 This Could Be Better
+
+  	  Permission is hereby granted, free of charge, to any person obtaining a copy
+  	  of this software and associated documentation files (the "Software"), to deal
+  	  in the Software without restriction, including without limitation the rights
+  	  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  	  copies of the Software, and to permit persons to whom the Software is
+  	  furnished to do so, subject to the following conditions:
+
+  	  The above copyright notice and this permission notice shall be included in all
+  	  copies or substantial portions of the Software.
+
+  	  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  	  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  	  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  	  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  	  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  	  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  	  SOFTWARE.
+
+*/
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+      <meta charset="UTF-8">
+
+      <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+      <style>
+
+          *{
+            color:rgb(143,143,143);
+            background-color: rgb(32,32,32);
+          }
+
+          #CajaBotones {
+            width:100%;
+            height: 60px;
+            position: fixed;
+            bottom: 0px;
+          }
+
+          #AbrirCarpeta{
+            background: none;
+            color: inherit;
+            padding: 0;
+            font: inherit;
+            cursor: pointer;
+            outline: inherit;
+            position:fixed;
+
+            left:5px;
+            
+            bottom:5px;
+            width:48%;
+            height:50px;
+            display: inline-block; 
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+            border:solid 1px;
+            border-color:white;
+            z-index: 2;
+            letter-spacing: 2px;
+            padding-top:-2px;
+            background: linear-gradient(rgba(0, 40, 58, 0.9), rgba(0, 66, 75, 0.9)),url('/svg/folder.svg'), space 0 0;
+            background-size: 24px 32px;
+          }
+
+          #Examinar{
+            background: none;
+            color: inherit;
+            padding: 0;
+            font: inherit;
+            cursor: pointer;
+            outline: inherit;
+            position:fixed;
+
+            right:5px;
+            
+            bottom:5px;
+            width:48%;
+            height:50px;
+            display: inline-block; 
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+            border:solid 1px;
+            border-color:white;
+            z-index: 2;
+            letter-spacing: 2px;
+            background: linear-gradient(rgba(0, 40, 58, 0.9), rgba(0, 66, 75, 0.9)),url('/svg/find.svg');
+            background-size: 32px 32px;
+          }
+
+          #AbrirCarpeta:hover{
+            font-size:14px;
+            letter-spacing: 4px;
+            background: linear-gradient(rgba(122,122,255,0.1),rgba(122,122,255,0.1)),linear-gradient(rgba(0, 40, 58, 0.8), rgba(0, 66, 75, 0.8));
+          }
+
+          #Examinar:hover{
+            font-size:14px;
+            letter-spacing: 4px;
+            background: linear-gradient(rgba(122,122,255,0.1),rgba(122,122,255,0.1)),linear-gradient(rgba(0, 40, 58, 0.8), rgba(0, 66, 75, 0.8));
+          }
+          #reloj{
+            width: 75%;
+            height: 75%;
+          }
+
+          .directorio{
+            width:32px;
+            height:32px;
+            position:relative;
+            top:5px;
+            margin-right: 5px;
+          }
+
+          #divMain{
+            font-family: 'Trebuchet MS';
+            position:absolute;
+            background-color: transparent ;
+          }
+
+          .listado{
+            padding-left:30px;
+            display: block;
+            content:"";
+            background-image: url('/svg/file.svg');
+            background-repeat: repeat-y;
+            background-size: 19px 18px;
+            text-indent: 1px;
+            font-size:14px;
+            z-index: -1;
+            letter-spacing: 1px;
+          }
+
+          h2{
+            margin-top:0px;
+            margin-bottom:0px;
+            padding-top:0px;
+            padding-bottom:0px;
+          }
+
+          .extrayendo{
+            margin: 0px 0px 0px px;
+            padding: 0px 0px 0px px;
+            position:absolute;
+            bottom:0px;
+            padding-top:10px;
+            left:0px;
+            width:100%;
+            height:100%;
+            font-family: 'Verdana';
+            font-size:30px;
+            text-align:center;
+            color:orange;
+            z-index: 3;
+            
+            -webkit-user-select: none; /* Safari 3.1+ */
+            -moz-user-select: none; /* Firefox 2+ */
+            -ms-user-select: none; /* IE 10+ */
+            user-select: none; /* Standard syntax */
+
+            animation: glow 1s infinite alternate;
+            letter-spacing: 6px;
+            text-shadow: 0 0 5px rgb(0,0,0);
+
+          }
+
+          @keyframes glow {
+            to {
+              text-shadow: 0 0 12px rgb(0,0,0);
+            }
+          }
+          .info{
+            position:absolute;
+            bottom:20px;
+            position:float;
+            font-family: 'Trebuchet MS';
+            z-index: 2;
+          }
+          
+          #flotante{
+            width:100%;
+            position:fixed;      
+            top:0px;
+            padding-top: 2px;    
+            float:left;
+            z-index: 2;
+            letter-spacing: 2px;
+          }
+
+          #dropContainer {
+            position:fixed;
+            left:2px;
+            top:2px;
+            right:2px;
+            /*Sort of important*/
+            width: 98%;
+            height: calc(100% - 70px);
+            /*Sort of important*/
+            border: 2px dashed rgba(255,255,255,.3);
+            border-radius: 20px;
+          }
+
+          /*Important*/
+          #dropContainer.mouse-over {
+            border: 2px dashed rgba(0,0,0,.5);
+            background-color:  rgba(255,255,255,.5);
+            color:black;
+            z-index:4;
+          }
+
+          #dropContainer.transparencia {
+            opacity: 0;
+            z-index:4;
+          }
+
+          #arrastra{
+            z-index:4;
+          }
+
+          #textoArrastre{
+            z-index:4;
+            font-size: 40px;
+
+            -webkit-user-select: none; 
+            -moz-user-select: none; 
+            -ms-user-select: none; 
+            user-select: none; /* Standard syntax */
+
+            position:absolute;
+            top: 50%;
+            left: 50%;
+            margin: -35px 0 0 -125px; 
+            font-family: 'Trebuchet MS';
+          }
+
+      </style>
+  </head>
+
+<body>
+  <div class="info">Arrastra o abre el PAK.</div>
+  
+    <div id="divMain"></div> 
+
+        <div id="arrastra">
+          <div id="dropContainer">
+            <div id="textoArrastre">Arrastra aquí</div>
+          </div>
+        
+        <input style="position:fixed;top:0px;left:0px;" type="file" id="fileInput" />
+
+    </div> 
+    <div class="archivos"></div> 
+    <div id="CajaBotones"></div> 
+    <div class="archivosAdaptativo"></div> 
+    <div class="extrayendo"><img id='reloj' src='svg/reloj.svg'></img><br/>...</div>
+
+  <script type="text/javascript" src="StringExtensions.js"></script>
+  <script type="text/javascript" src="Converter.js"></script>
+  <script type="text/javascript" src="Globals.js"></script>
+  <script type="text/javascript" src="Session.js"></script>
+  <script type="text/javascript">
+
+    function main()
+    {
+        var session = new Session([]);
+        Globals.Instance.initialize(session);
+    }
+
+    main();
+        
+  </script>
+
+</body>
+
+</html>
+      

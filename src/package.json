@@ -1,0 +1,10 @@
+{
+  "name": "ExtraerPAK v1.0",
+  "main": "index.html",
+  "window": {
+    "title": "ExtraerPAK v1.0",
+    "icon": "1f4e6.png",
+    "width": 450,
+    "height": 550
+  }
+}
