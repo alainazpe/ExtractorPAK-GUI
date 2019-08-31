@@ -5,7 +5,7 @@
  Esta aplicación debe de abrirse con NW.JS (recomendado nwjs-v0.14.7-win-ia32), no funcionará en navegadores convencionales.
  
 
-     alainazpe/ExtractorPAK-GUI (https://github.com/alainazpe/ExtractorPAK-GUI):
+     alainazpe/ExtraerPAK-GUI (https://github.com/alainazpe/ExtraerPAK-GUI):
 
   	  MIT License
 
