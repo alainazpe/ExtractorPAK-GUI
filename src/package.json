@@ -1,8 +1,8 @@
 {
-  "name": "ExtraerPAK v1.0",
+  "name": "ExtraerPAK v1.1",
   "main": "index.html",
   "window": {
-    "title": "ExtraerPAK v1.0",
+    "title": "ExtraerPAK v1.1",
     "icon": "1f4e6.png",
     "width": 450,
     "height": 550
