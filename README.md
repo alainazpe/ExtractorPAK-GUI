@@ -4,6 +4,20 @@
  
  Esta aplicación debe de abrirse con NW.JS (recomendado nwjs-v0.14.7-win-ia32), no funcionará en navegadores convencionales.
  
+ Requisitos minimos: 
+    Windows XP SP3
+ Changelog:
+    v1.1: 
+        - Ahora con núcleo basado en ExtraerPAK-CLI v1.1
+        - Función de arrastrar ficheros funcional
+        - Se elimina Powershell como dependencia
+        - Mejoras de rendimiento y estabilidad
+        - Limpieza de código
+        - Log del proceso de extracción
+        - Auto elevación en Windows Vista o superior (editable desde la variable window.rutaElevacion)
+    v1.0: 
+        - Versión inicial
+    
 alainazpe/ExtractorPAK-GUI (https://github.com/alainazpe/ExtractorPAK-GUI):
 
     MIT License
