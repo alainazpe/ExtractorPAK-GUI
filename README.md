@@ -3,9 +3,15 @@
  Extrae archivos .PAK
  
  Esta aplicación debe de abrirse con NW.JS (recomendado nwjs-v0.14.7-win-ia32), no funcionará en navegadores convencionales.
- 
+
  Requisitos minimos: 
  - Windows XP SP3
+
+Capturas:
+ 
+![image](https://user-images.githubusercontent.com/34461201/148679088-e1677945-26d8-4431-8a23-9a5a0c68ab86.png)
+![image](https://user-images.githubusercontent.com/34461201/148679155-b0bb1650-e7e3-4273-b09f-706541ee8810.png)
+
 
 Changelog:
        
