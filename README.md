@@ -5,8 +5,10 @@
  Esta aplicación debe de abrirse con NW.JS (recomendado nwjs-v0.14.7-win-ia32), no funcionará en navegadores convencionales.
  
  Requisitos minimos: 
-    Windows XP SP3
- Changelog:
+ - Windows XP SP3
+
+Changelog:
+       
     v1.1: 
         - Ahora con núcleo basado en ExtraerPAK-CLI v1.1
         - Función de arrastrar ficheros funcional
